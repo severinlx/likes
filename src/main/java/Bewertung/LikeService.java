@@ -8,6 +8,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import com.google.gson.*;
+import java.sql.*;
 
 //import com.google.gson.Gson;
 
@@ -28,12 +29,19 @@ public class LikeService {
 	@GET
 	@Path("/{Post_id}")
 	@Produces(MediaType.TEXT_PLAIN)
-	public int getLikesNumber(@PathParam("Post_id") int Post_id)
+	public int getLikesNumber(@PathParam("Post_id") int Post_id) throws SQLException
 	{
+		Connection conn = DriverManager.
+	            getConnection("jdbc:h2:~/test", "sa", "");
+	        // add application code here
+	        conn.close();
+	        
+	        
 		postEig = new PostEig(postFeaturesArray[1][0]);
 		postEig.setNr_of_likes(6);
 		return postEig.getNr_of_likes();
 		 
 	}
+	
 	
 }
