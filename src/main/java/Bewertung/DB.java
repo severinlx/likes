@@ -14,7 +14,7 @@ public class DB {
 	   static final String USER = "sa"; 
 	   static final String PASS = ""; 
 	  
-	   public static void main(String[] args) { 
+	   public static void createTable() { 
 	      Connection conn = null; 
 	      Statement stmt = null; 
 	      try { 
