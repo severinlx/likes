@@ -28,10 +28,18 @@ public class LikeService {
 	
 	@GET
 	@Path("/{Post_id}")
-	@Produces(MediaType.TEXT_PLAIN)
-	public int getLikesNumber(@PathParam("Post_id") int Post_id) throws SQLException
+	@Produces(MediaType.APPLICATION_JSON)
+	public JsonObject getLikesNumber(@PathParam("Post_id") int Post_id) throws SQLException
 	{
-		return DBOperations.getLikes(Post_id);
+		
+		JsonObject result = new JsonObject();
+		//result.addProperty("post_id", Post_id);
+		//result.addProperty("likes", DBOperations.getLikes(Post_id));
+		//result.addProperty("dislikes", DBOperations.getDisLikes(Post_id));
+		result.addProperty("post_id", 9);
+		result.addProperty("likes", 10);
+		result.addProperty("dislikes",3);
+		return result;
 	}
 	
 }
