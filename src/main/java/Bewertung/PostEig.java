@@ -1,8 +1,13 @@
 package Bewertung;
 
+import com.google.gson.annotations.SerializedName;
+
 public class PostEig {
+@SerializedName("post_id")
 public int post_id;
+@SerializedName("likes_number")
 public int likesNumber;
+@SerializedName("dislikes_number")
 public int nr_of_dislikes;
 
 public PostEig(int post_id) {

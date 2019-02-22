@@ -15,7 +15,15 @@ public class DBOperations {
 			postRating = new PostEig(postID, 1, 0);
 			DBpost.post(postRating);
 		}
+	}
 	
+	public static void postOrUpdate(PostEig postRating) {
+		int postID = postRating.getPost_id();
+		if(DBget.getIds().contains(postID)) {
+		    DBpost.update(postRating);
+			} else {
+				DBpost.post(postRating);
+			}
 	}
 	
 	public static void incrementDisLike(int postID) {
