@@ -71,7 +71,8 @@ public class DBget {
 	         // STEP 3: Execute a query 
 	         System.out.println("Connected database successfully..."); 
 	         stmt = conn.createStatement(); 
-	         String sql = String.format("SELECT post_likes_number, post_dislikes_number FROM Post_Rating  WHERE post_id=%x", postID); 
+	         String sql = String.format("SELECT post_likes_number, post_dislikes_number FROM Post_Rating  WHERE post_id=%s", 
+	        		 Integer.toString(postID)); 
 	         ResultSet rs = stmt.executeQuery(sql); 
 	         
 	         // STEP 4: Extract data from result set 
@@ -82,6 +83,7 @@ public class DBget {
 	            int dislikes = rs.getInt("post_dislikes_number"); 
 	            
 	            // Display values 
+	            System.out.print("this is get!!!!!!!!!" );
 	            System.out.print(postID); 
 	            System.out.print(", likes: " + likes); 
 	            System.out.print(", dislikes: " + dislikes); 

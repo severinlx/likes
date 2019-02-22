@@ -11,16 +11,17 @@ public class DBpost {
 	        		 Integer.toString(postEig.getPost_id()), 
 	        		 Integer.toString(postEig.getNr_of_likes()), 
 	        		 Integer.toString(postEig.getNr_of_dislikes())); 
-		   
+		   System.out.println("post!!!!!!!! "+sql);
 		   DB.runQuery(sql);
 	}
 	   
 	public static void update(PostEig postRating) {
-		String sql = String.format("UPDATE Post_Rating SET post_likes_number=%x, post_dislikes_number=%x WHERE post_id=%x", 
-				postRating.getNr_of_likes(),
-				postRating.getNr_of_dislikes(),
-				postRating.getPost_id()
+		String sql = String.format("UPDATE Post_Rating SET post_likes_number=%s, post_dislikes_number=%s WHERE post_id=%s", 
+				Integer.toString(postRating.getNr_of_likes()),
+				Integer.toString(postRating.getNr_of_dislikes()),
+				Integer.toString(postRating.getPost_id())
 				);
+		System.out.println("update!!!!!!!! "+sql);
 		DB.runQuery(sql);
 	}
 }

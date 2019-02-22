@@ -13,13 +13,19 @@ public class DB {
 	   //  Database credentials 
 	   static final String USER = "sa"; 
 	   static final String PASS = ""; 
-	  
+	   
+	   //table an columns:
+	   static final String TABLE = "Post_Rating";
+	   static final String POST_ID_COLUMN =  "post_id";
+	   static final String LIKES_NUMBER_COLUMN =  "post_likes_number";
+	   static final String DISLIKES_NUMBER_COLUMN =  "post_dislikes_number";
 	   public static void createTable() { 
-		   String sql =  "CREATE TABLE   Post_Rating " + 
-		        	" (post_id INTEGER, " +  
-		            " post_likes_number INTEGER, " +  
-		            " post_dislikes_number INTEGER, " +  
-		            " PRIMARY KEY ( post_id ))";  
+		   String sql =  String.format("CREATE TABLE   %s" + 
+		        	" (% INTEGER, " +  
+		            " % INTEGER, " +  
+		            " % INTEGER, " +  
+		            " PRIMARY KEY ( % ))", 
+		            TABLE, POST_ID_COLUMN, LIKES_NUMBER_COLUMN, DISLIKES_NUMBER_COLUMN, POST_ID_COLUMN);  
 		   
 	 
 	      System.out.println("Goodbye!");
@@ -31,7 +37,7 @@ public class DB {
 		      Statement stmt = null; 
 		      try{
 		         // STEP 1: Register JDBC driver 
-			         Class.forName(JDBC_DRIVER);  
+			     Class.forName(JDBC_DRIVER);  
 		         
 		         // STEP 2: Open a connection 
 		         System.out.println("Connecting to a selected database..."); 
@@ -40,8 +46,9 @@ public class DB {
 		         
 		         // STEP 3: Execute a query 
 		         stmt = conn.createStatement();  
-		         
+		          
 		         System.out.println(sql);
+		         //ab hier raus
 		         
 		         stmt.executeUpdate(sql); 
 		         
@@ -67,9 +74,7 @@ public class DB {
 		         } catch(SQLException se) { 
 		            se.printStackTrace(); 
 		         } // end finally try 
-		      } // end try 
-		      System.out.println("Goodbye!"); 
-			
+		      } // end try 			
 		}
 		
 	}
