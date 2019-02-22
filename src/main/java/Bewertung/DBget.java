@@ -7,12 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList; 
 
 public class DBget {
-	static final String JDBC_DRIVER = "org.h2.Driver";   
-	   static final String DB_URL = "jdbc:h2:~/test";  
-	   
-	   //  Database credentials 
-	   static final String USER = "sa"; 
-	   static final String PASS = ""; 
 	   
 	   public static ArrayList<Integer> getIds() {
 		   Connection conn = null; 
@@ -21,11 +15,11 @@ public class DBget {
 		      ArrayList<Integer> list = new ArrayList<Integer>();
 		      try { 
 		         // STEP 1: Register JDBC driver 
-		         Class.forName(JDBC_DRIVER); 
+		         Class.forName(DB.JDBC_DRIVER); 
 		         
 		         // STEP 2: Open a connection 
 		         System.out.println("Connecting to database..."); 
-		         conn = DriverManager.getConnection(DB_URL,USER,PASS);  
+		         conn = DriverManager.getConnection(DB.DB_URL,DB.USER,DB.PASS);  
 		         
 		         // STEP 3: Execute a query 
 		         System.out.println("Connected database successfully..."); 
@@ -68,11 +62,11 @@ public class DBget {
 	      
 	      try { 
 	         // STEP 1: Register JDBC driver 
-	         Class.forName(JDBC_DRIVER); 
+	         Class.forName(DB.JDBC_DRIVER); 
 	         
 	         // STEP 2: Open a connection 
 	         System.out.println("Connecting to database..."); 
-	         conn = DriverManager.getConnection(DB_URL,USER,PASS);  
+	         conn = DriverManager.getConnection(DB.DB_URL,DB.USER,DB.PASS);  
 	         
 	         // STEP 3: Execute a query 
 	         System.out.println("Connected database successfully..."); 
