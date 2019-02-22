@@ -10,7 +10,7 @@ public class DBget {
 	   
 	   public static ArrayList<Integer> getIds() {
 		   Connection conn = null; 
-		      Statement stmt = null; 
+		   Statement stmt = null; 
 		    
 		      ArrayList<Integer> list = new ArrayList<Integer>();
 		      try { 

@@ -5,12 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException; 
 import java.sql.Statement;  
 public class DBpost {
-	static final String JDBC_DRIVER = "org.h2.Driver";   
-	   static final String DB_URL = "jdbc:h2:~/test";  
-	   
-	   //  Database credentials 
-	   static final String USER = "sa"; 
-	   static final String PASS = ""; 
 	   
 	   public static void post(PostEig postEig) {
 		   String sql =  String.format("INSERT INTO Post_Rating VALUES (%s, %s, %s)", 
